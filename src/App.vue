@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 </script>
 
-<template>
+<!-- <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
@@ -18,6 +18,9 @@ import HelloWorld from './components/HelloWorld.vue'
   </header>
 
   <RouterView />
+</template> -->
+<template>
+  <h1 class="bg-blue-500 text-white p-5">Hello Tailwind CSS!</h1>
 </template>
 
 <style scoped>
