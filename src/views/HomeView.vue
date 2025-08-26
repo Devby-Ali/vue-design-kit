@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <div class="bg-red-500 text-white p-5">Hello Tailwind CSS!</div>
   </main>
 </template>
