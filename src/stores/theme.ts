@@ -1,15 +1,16 @@
 import { defineStore } from 'pinia'
 
+type Mode = 'light' | 'dark' | 'system'
 
 export const useThemeStore = defineStore('theme', {
   state: () => ({
-    mode: 'system',
+    mode: 'system' as Mode,
     isDark: false,
     ready: false,
   }),
   actions: {
     init() {
-      const saved = localStorage.getItem('theme-mode')
+      const saved = localStorage.getItem('theme-mode') as Mode | null
       this.mode = saved ?? 'system'
       this.apply()
       this.ready = true
@@ -18,7 +19,7 @@ export const useThemeStore = defineStore('theme', {
         if (this.mode === 'system') this.apply()
       })
     },
-    setMode(mode) {
+    setMode(mode: Mode) {
       this.mode = mode
       localStorage.setItem('theme-mode', mode)
       this.apply()

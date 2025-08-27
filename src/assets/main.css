@@ -1,5 +1,7 @@
+@import 'tailwindcss/preflight';
 @import 'tailwindcss';
 
+/* توکن‌های تم – HSL components برای hsl(var(--token)) */
 :root {
   color-scheme: light;
   --bg: 0 0% 100%;
@@ -32,6 +34,7 @@
   --danger: 0 84% 70%;
 }
 
+/* Base */
 @layer base {
   html,
   body,
@@ -39,64 +42,85 @@
     height: 100%;
   }
   body {
-    @apply antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     background-color: hsl(var(--bg));
     color: hsl(var(--fg));
   }
 }
 
-@layer utilities {
-  .bg-base {
-    background-color: hsl(var(--bg));
-  }
-  .bg-surface {
-    background-color: hsl(var(--surface));
-  }
-  .text-base {
-    color: hsl(var(--fg));
-  }
-  .text-muted {
-    color: hsl(var(--fg-muted));
-  }
-  .border-base {
-    border-color: hsl(var(--border));
-  }
-  .ring-primary {
-    --tw-ring-color: hsl(var(--ring));
-  }
+/* Utilities نگاشتی به توکن‌ها برای خوانایی بهتر */
+.bg-base {
+  background-color: hsl(var(--bg));
+}
+.bg-surface {
+  background-color: hsl(var(--surface));
+}
+.text-base {
+  color: hsl(var(--fg));
+}
+.text-muted {
+  color: hsl(var(--fg-muted));
+}
+.border-base {
+  border-color: hsl(var(--border));
+}
+.ring-primary {
+  --tw-ring-color: hsl(var(--ring));
+}
 
-  .container-safe {
-    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
-  }
+.container-safe {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
-  .card {
-    @apply rounded-xl border border-base bg-surface shadow-sm;
-  }
+.card {
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--surface));
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
 
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition;
-  }
-  .btn-primary {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-fg));
-  }
-  .btn-primary:hover {
-    filter: brightness(0.95);
-  }
-  .btn-outline {
-    @apply border;
-    border-color: hsl(var(--border));
-    color: hsl(var(--fg));
-    background-color: transparent;
-  }
-  .btn-outline:hover {
-    background-color: hsl(var(--surface));
-  }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.btn-primary {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-fg));
+}
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+.btn-outline {
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--fg));
+  background-color: transparent;
+}
+.btn-outline:hover {
+  background-color: hsl(var(--surface));
+}
 
-  .tag {
-    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium;
-    background-color: hsl(var(--surface));
-    color: hsl(var(--fg-muted));
-    border: 1px solid hsl(var(--border));
-  }
+.tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: hsl(var(--surface));
+  color: hsl(var(--fg-muted));
+  border: 1px solid hsl(var(--border));
 }
